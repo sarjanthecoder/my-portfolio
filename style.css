@@ -2000,6 +2000,33 @@ body {
         margin-bottom: 40px;
     }
 
+    /* Hero image mobile */
+    .hero-image {
+        flex: 0 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .holographic-frame {
+        width: 250px;
+        height: 250px;
+    }
+
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-text {
+        align-items: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
     .about-image img {
         width: 280px;
         height: 280px;
@@ -2141,6 +2168,11 @@ body {
 
     .section-title {
         font-size: 1.6rem;
+    }
+
+    .holographic-frame {
+        width: 200px;
+        height: 200px;
     }
 
     .about-image img {
