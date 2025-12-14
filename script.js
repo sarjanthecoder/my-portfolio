@@ -112,7 +112,9 @@ function initParticles() {
     canvas.height = window.innerHeight;
 
     const particles = [];
-    const particleCount = 100;
+    // Reduce particles on mobile for performance
+    const isMobile = window.innerWidth <= 768;
+    const particleCount = isMobile ? 30 : 60;
     const codeSymbols = ['{', '}', '<', '>', '/', '(', ')', '[', ']', ';', '=', '+', '-'];
 
     class Particle {
