@@ -25,7 +25,7 @@ A stunning, futuristic portfolio website showcasing AI Engineering, Full-Stack D
 | **Styling** | Custom CSS, Glassmorphism, CSS Animations |
 | **Icons** | Font Awesome 6.4 |
 | **Fonts** | Google Fonts (Montserrat, Oswald) |
-| **Forms** | Web3Forms API |
+| **Forms** | EMAIL JS API |
 | **Images** | AI-Generated (Gemini) Navy Blue Glassmorphism Theme |
 
 ## 📁 Project Structure
