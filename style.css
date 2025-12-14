@@ -2030,7 +2030,7 @@ body {
     }
 
     .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 15px;
     }
 
@@ -2047,7 +2047,7 @@ body {
     }
 
     .certifications-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 15px;
     }
 
@@ -2170,7 +2170,7 @@ body {
     }
 
     .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 10px;
     }
 
@@ -2188,7 +2188,7 @@ body {
     }
 
     .certifications-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 10px;
     }
 
