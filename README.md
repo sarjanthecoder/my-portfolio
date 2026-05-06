@@ -101,3 +101,150 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 <p align="center">Made with ❤️ and lots of ☕</p>
+
+
+
+
+
+uiux
+
+PROGRAM:
+HTML:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Societal Application</title>
+<style>
+body{
+ margin:0;
+ font-family: 'Segoe UI', sans-serif;
+background:#f4f6fb;
+}
+/* Header */
+header{
+background:#d8a1dd;
+color:white;
+text-align:center;
+ padding:20px;
+}
+/* Navigation */
+nav{
+background:#ffffff;
+ box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+nav ul{
+list-style:none;
+ margin:0;
+ padding:10px;
+display:flex;
+justify-content:center;
+}
+nav li{
+ margin:0 20px;}
+nav a{
+text-decoration:none;
+color:#333;
+ font-weight:600;
+}
+nav a:hover{
+color:#d8a1dd;
+}
+/* Container */
+.container{
+ max-width:1100px;
+margin:auto;
+ padding:20px;
+}
+/* Profile Card */
+.profile{
+background:white;
+ padding:20px;
+ border-radius:10px;
+ box-shadow:0 3px 8px rgba(0,0,0,0.1);
+ margin-bottom:20px;
+}
+.profile h3{
+ margin-top:0;
+}
+/* Post Section */
+.posts{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+.post-card{
+background:white;
+ padding:15px;
+ border-radius:10px;
+ box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+.post-card h4{
+ margin:0 0 10px;
+}
+.post-card p{
+color:#555;
+}
+/* Footer */
+footer{
+background:#d8a1dd;
+color:white;
+text-align:center;
+ padding:12px;
+ margin-top:30px;
+}
+/* Mobile */
+@media(max-width:768px){
+nav ul{
+flex-direction:column;
+align-items:center;
+}
+nav li{
+margin:10px 0;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Societal Application</h1>
+<p>Connect • Share • Communicate</p>
+</header>
+<nav>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Profile</a></li>
+<li><a href="#">Posts</a></li>
+<li><a href="#">Friends</a></li>
+<li><a href="#">Settings</a></li>
+</ul>
+</nav>
+<div class="container">
+<div class="profile">
+<h3>User Profile</h3>
+<p><b>Name:</b> Arjun Kumar</p>
+<p><b>Location:</b> Chennai, India</p>
+<p><b>Bio:</b> Passionate about technology, coding and connecting with people.</p>
+</div>
+<h2>Recent Posts</h2>
+<div class="posts">
+<div class="post-card">
+<h4>Community Meetup</h4>
+<p>We are organizing a tech meetup this weekend. Join us to share ideas and innovations.</p>
+</div>
+<div class="post-card">
+<h4>New Feature Update</h4>
+<p>The application now supports real-time messaging and notifications.</p>
+</div>
+<div class="post-card">
+<h4>Learning Together</h4>
+<p>Students can collaborate, share notes and work on projects together.</p>
+</div>
+</div>
+</div>
+<footer>© 2026 Societal Application | All Rights Reserved
+</footer>
+</body>
+</html>
+
