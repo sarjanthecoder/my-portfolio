@@ -246,5 +246,91 @@ margin:10px 0;
 <footer>© 2026 Societal Application | All Rights Reserved
 </footer>
 </body>
-</html>
+</html>
+
+
+practical  
+
+EX.NO.4 Classification of a dataset from UCI repository using a perceptron with and without bias.
+
+Aim
+
+To write a python program for the classification of a dataset from UCI repository using a perceptron with and without bias.
+
+Algorithm
+
+1. Import required libraries
+
+2. Load the dataset from UCI repository
+
+3. Extract features and target variable
+
+4. Fit a perceptron model without bias
+
+5. Fit a perceptron model with bias
+
+Program
+
+import numpy as np
+
+import pandas as pd
+
+from sklearn.model selection import train_test_split from sklearn.linear_model import Perceptron
+
+from sklearn.metrics import accuracy_score
+
+#Load the dataset from UCI repository (example with Iris dataset)
+
+column_names = ['sepal length', 'sepal_width', 'petal_length', 'petal_width', 'species']
+
+url="https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
+
+data pd.read_csv(url, names column_names)
+
+#Extracting features and target variable
+
+X=data.drop(species', axis=1)
+
+y = data['species']
+
+#Splitting the dataset into training and testing sets
+
+X_train, X_test, y_train, y_test train_test split(X, y, test size 0.2, random_state=0)
+
+#Fitting a perceptron model without bias
+
+model no bias Perceptron(fit_intercept=False)
+
+model_no_bias.fit(X train, y train)
+
+y_pred_no_bias= model_no_bias.pre dict(X_test)
+
+accuracy_no_bias accuracy_score(y_test, y_pred_no_bias)
+
+print("Accuracy of perceptron without bias:", accuracy_no_bias)
+
+#Fitting a perceptron model with bias
+
+model with bias Perceptron(fit_intercept=True)
+
+model_with_bias.fit(X_train, y_train)
+
+y_pred_with bias model with_bias.predict(X_test)
+
+accuracy_with_bias= accuracy_score(y_test, y_pred_with_bias)
+
+print("Accuracy of perceptron with bias:", accuracy_with_bias)
+
+Output
+
+Accuracy of perceptron without bias: 0.6
+
+Accuracy of perceptron with blas: 0.7333333333333333
+
+Result
+
+Thus the python program for classification of a dataset from UCI repository using a
+
+perceptron with and without bias has been executed successfully.
+
 
