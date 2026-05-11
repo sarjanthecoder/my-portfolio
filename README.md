@@ -334,3 +334,77 @@ Thus the python program for classification of a dataset from UCI repository usin
 perceptron with and without bias has been executed successfully.
 
 
+iot
+PROGRAM
+PROGRAM
+COMMENT
+import lcddriver
+Import LCD Library
+from time import *
+Import Delay Library
+lcd = lcddriver.lcd()
+Initialize LCD
+import busio
+Import SPI Bus Pins
+import time
+Import Time Library
+import digitalio
+Define digital pin support
+import board
+Define unique identifier for the board model
+import adafruit_mcp3xxx.mcp3008 as
+MCP
+Import MCP3008 Library
+from adafruit_mcp3xxx.analog_in import
+AnalogIn
+Import Analog Input Library
+spi = busio.SPI(clock=board.SCK,
+MISO=board.MISO, MOSI=board.MOSI)
+Define SPI Bus
+cs = digitalio.DigitalInOut(board.D8)
+Chip Select Pin Connected GPIO 8
+mcp = MCP.MCP3008(spi, cs)
+Initialize MCP3008
+POT1 = AnalogIn(mcp, MCP.P0)
+POT_1 connected with MCP3003 Channel_0
+POT2 = AnalogIn(mcp, MCP.P1)
+POT_2 connected with MCP3003 Channel_1
+while True:
+Infinite Loop Start
+print('POT1_ADC VALUE: ',
+POT1.value)
+Read and Print POT_1 ADC Value on Console
+print('POT_1 VOLT: ' +
+str(POT1.voltage) + 'V')
+Read and Print POT_1 VOLT Value on Console
+time.sleep(0.25)
+Delay 0.25 Second
+print('POT2_ADC VALUE: ',
+POT2.value)
+Read and Print POT_1 ADC Value on Console
+print('POT_2 VOLT: ' +
+str(POT2.voltage) + 'V')
+Read and Print POT_1 VOLT Value on Console
+time.sleep(0.25)
+Delay 0.25 Second
+lcd.lcd_clear()
+Clear LCD
+lcd.lcd_display_string("P1_ADC: %d"
+Print POT_1 ADC Value on LCD 1st Line
+% (POT1.value), 1)
+lcd.lcd_display_string("P1_VOLT: %f V"
+% (POT1.voltage), 2)
+Print POT_1 VOLT Value on LCD 2nd Line
+time.sleep(2)
+Delay 2 Second
+Lcd.lcd_clear()
+Clear LCD
+lcd.lcd_display_string("P2_ADC: %d" %
+(POT2.value), 1)
+Print POT_2 ADC Value on LCD 1st Line
+lcd.lcd_display_string("P2_VOLT: %f V"
+% (POT2.voltage), 2)
+Print POT_2 VOLT Value on LCD 2nd Line
+time.sleep(2)
+Delay 2 Second
+
