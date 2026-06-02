@@ -1,0 +1,28 @@
+/* TEAM */
+
+Name: Sarjan P
+Role: AI Engineer, Full Stack Developer, Software Engineer
+Site: https://sarjanp.in
+Location: Vedharampatti Pudur, Dharmapuri, Tamil Nadu, India
+Email: sarjan6325@gmail.com
+GitHub: https://github.com/sarjanthecoder
+LinkedIn: https://www.linkedin.com/in/sarjan-p-7a97862a0
+
+/* THANKS */
+
+React — https://reactjs.org
+Vite — https://vitejs.dev
+Three.js — https://threejs.org
+Font Awesome — https://fontawesome.com
+Google Fonts — https://fonts.google.com
+EmailJS — https://emailjs.com
+
+/* SITE */
+
+Last update: 2026-06-02
+Language: English
+Standards: HTML5, CSS3, JavaScript ES2024
+Components: React 18
+Build: Vite
+IDE: VS Code
+Domain: sarjanp.in

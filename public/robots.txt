@@ -1,0 +1,19 @@
+# https://sarjanp.in - Robots.txt
+# Portfolio of Sarjan P — AI Engineer, Full Stack Developer & Software Engineer
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /*.map$
+
+# Sitemaps
+Sitemap: https://sarjanp.in/sitemap.xml
+
+# Crawl-delay (optional for well-behaved bots)
+# Crawl-delay: 1
+
+# Host directive
+Host: https://sarjanp.in

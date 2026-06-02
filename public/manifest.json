@@ -1,0 +1,22 @@
+{
+  "name": "SarjanP — AI Engineer & Full Stack Developer Portfolio",
+  "short_name": "SarjanP",
+  "description": "Portfolio of Sarjan P — AI Engineer, Full Stack Developer, and Software Engineer from Dharmapuri, Tamil Nadu, India. Specializing in Python, React, Flask, Firebase, Gemini API, and Machine Learning.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#020408",
+  "theme_color": "#020408",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "categories": ["portfolio", "technology", "development", "education"],
+  "icons": [
+    {
+      "src": "/images/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

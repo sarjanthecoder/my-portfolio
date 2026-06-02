@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://sarjanp.in/</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://sarjanp.in/images/profile.jpg</image:loc>
+      <image:title>Sarjan P — AI Engineer and Full Stack Developer</image:title>
+      <image:caption>Sarjan P, AI Engineer, Full Stack Developer, and Software Engineer from Dharmapuri, Tamil Nadu, India</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sarjanp.in/images/logo.jpg</image:loc>
+      <image:title>SarjanP Logo</image:title>
+      <image:caption>Official brand logo of SarjanP portfolio</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Section -->
+  <url>
+    <loc>https://sarjanp.in/#about</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Skills Section -->
+  <url>
+    <loc>https://sarjanp.in/#skills</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Portfolio Section -->
+  <url>
+    <loc>https://sarjanp.in/#portfolio</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Certifications Section -->
+  <url>
+    <loc>https://sarjanp.in/#certifications</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sarjanp.in/images/certificates/oracle_cert.jpg</image:loc>
+      <image:title>Oracle Certified Foundations Associate — Sarjan P</image:title>
+      <image:caption>Sarjan P Oracle Fusion AI Agent Studio Foundations Associate certification from Oracle University</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sarjanp.in/images/certificates/nit_tcs_ideathon.jpg</image:loc>
+      <image:title>AI For ALL Ideathon 1st Place — NIT Trichy &amp; TCS Foundation</image:title>
+      <image:caption>Sarjan P first place achievement at NIT Tiruchirappalli AI ideathon conducted by TCS Foundation</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sarjanp.in/images/certificates/kongu_genai.jpg</image:loc>
+      <image:title>Gen-AI with Cloud Training — Kongu Engineering College</image:title>
+      <image:caption>Sarjan P Gen-AI with Cloud training certificate from Kongu Engineering College Erode</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sarjanp.in/images/certificates/kongu_hackathon.jpg</image:loc>
+      <image:title>AI Conclave 1.0 Hackathon — Kongu Engineering College</image:title>
+      <image:caption>Sarjan P AI Conclave 1.0 hackathon participation certificate from Kongu Engineering College</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sarjanp.in/images/certificates/shridevi_hackathon.jpg</image:loc>
+      <image:title>National Level Hackathon — Shridevi Institute</image:title>
+      <image:caption>Sarjan P national level hackathon participation at Shridevi Institute of Engineering and Technology Tumakuru</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Contact Section -->
+  <url>
+    <loc>https://sarjanp.in/#contact</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
