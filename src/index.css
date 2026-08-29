@@ -19,20 +19,20 @@
   --btn-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   --btn-gradient-hover: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   
-  /* Glassmorphism & Subtle Glow Tokens */
-  --glass-bg: rgba(255, 255, 255, 0.76);
-  --glass-bg-subtle: rgba(255, 255, 255, 0.6);
-  --glass-bg-hover: rgba(255, 255, 255, 0.95);
-  --glass-border: rgba(37, 99, 235, 0.22);
-  --glass-border-subtle: rgba(37, 99, 235, 0.16);
-  --glass-shadow: 0 0 18px rgba(37, 99, 235, 0.07), 0 15px 35px rgba(0, 40, 120, 0.07);
-  --glass-shadow-lg: 0 0 25px rgba(37, 99, 235, 0.12), 0 20px 45px rgba(0, 40, 120, 0.1);
-  --glass-blur: blur(20px);
+  /* High-Performance Smooth Glass Tokens */
+  --glass-bg: rgba(255, 255, 255, 0.90);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.78);
+  --glass-bg-hover: #ffffff;
+  --glass-border: rgba(37, 99, 235, 0.20);
+  --glass-border-subtle: rgba(37, 99, 235, 0.14);
+  --glass-shadow: 0 4px 20px rgba(0, 30, 80, 0.05);
+  --glass-shadow-lg: 0 10px 30px rgba(0, 30, 80, 0.08);
+  --glass-blur: blur(8px);
   
-  --card-border-color: rgba(37, 99, 235, 0.22);
-  --card-border-bold: 2px solid rgba(37, 99, 235, 0.24);
-  --card-glow-subtle: 0 0 18px rgba(37, 99, 235, 0.08), 0 4px 20px rgba(0, 0, 0, 0.04);
-  --card-glow-hover: 0 0 28px rgba(37, 99, 235, 0.25), 0 14px 34px rgba(37, 99, 235, 0.14);
+  --card-border-color: rgba(37, 99, 235, 0.20);
+  --card-border-bold: 2px solid rgba(37, 99, 235, 0.22);
+  --card-glow-subtle: 0 4px 18px rgba(37, 99, 235, 0.06);
+  --card-glow-hover: 0 8px 25px rgba(37, 99, 235, 0.18);
   
   --card-radius-lg: 28px;
   --card-radius-md: 22px;
@@ -53,18 +53,18 @@
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
   
-  --glass-bg: rgba(15, 23, 42, 0.82);
-  --glass-bg-subtle: rgba(15, 23, 42, 0.6);
-  --glass-bg-hover: rgba(30, 41, 59, 0.95);
-  --glass-border: rgba(56, 189, 248, 0.24);
-  --glass-border-subtle: rgba(56, 189, 248, 0.16);
-  --glass-shadow: 0 0 22px rgba(56, 189, 248, 0.1), 0 20px 40px rgba(0, 0, 0, 0.5);
-  --glass-shadow-lg: 0 0 30px rgba(56, 189, 248, 0.18), 0 25px 50px rgba(0, 0, 0, 0.6);
+  --glass-bg: rgba(15, 23, 42, 0.92);
+  --glass-bg-subtle: rgba(15, 23, 42, 0.78);
+  --glass-bg-hover: rgba(30, 41, 59, 0.98);
+  --glass-border: rgba(56, 189, 248, 0.22);
+  --glass-border-subtle: rgba(56, 189, 248, 0.15);
+  --glass-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  --glass-shadow-lg: 0 12px 35px rgba(0, 0, 0, 0.55);
   
   --card-border-color: rgba(56, 189, 248, 0.25);
   --card-border-bold: 2px solid rgba(56, 189, 248, 0.28);
-  --card-glow-subtle: 0 0 22px rgba(56, 189, 248, 0.12), 0 4px 24px rgba(0, 0, 0, 0.5);
-  --card-glow-hover: 0 0 32px rgba(56, 189, 248, 0.32), 0 14px 40px rgba(37, 99, 235, 0.3);
+  --card-glow-subtle: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --card-glow-hover: 0 10px 30px rgba(37, 99, 235, 0.25);
 }
 
 /* ==========================================================================
@@ -1352,6 +1352,8 @@ section:not(.hero-section):not(.stats-section):not(.tech-features-section) {
   padding: 90px 0;
   position: relative;
   z-index: 10;
+  content-visibility: auto;
+  contain-intrinsic-size: 600px;
 }
 
 .section-title {

@@ -14,15 +14,24 @@ export default function Hero() {
     }, 2800);
   };
 
+  const tiltRafRef = useRef(null);
+
   const handleCardMouseMove = (e) => {
-    if (!heroCardRef.current) return;
+    if (!heroCardRef.current || window.innerWidth <= 900) return;
     const rect = heroCardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    heroCardRef.current.style.transform = `perspective(1000px) rotateX(${-y * 0.04}deg) rotateY(${x * 0.04}deg) translateZ(8px)`;
+    
+    if (tiltRafRef.current) cancelAnimationFrame(tiltRafRef.current);
+    tiltRafRef.current = requestAnimationFrame(() => {
+      if (heroCardRef.current) {
+        heroCardRef.current.style.transform = `perspective(1000px) rotateX(${-y * 0.03}deg) rotateY(${x * 0.03}deg) translateZ(6px)`;
+      }
+    });
   };
 
   const handleCardMouseLeave = () => {
+    if (tiltRafRef.current) cancelAnimationFrame(tiltRafRef.current);
     if (!heroCardRef.current) return;
     heroCardRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
   };
