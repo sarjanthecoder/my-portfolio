@@ -61,7 +61,7 @@ export default function About() {
 
           <div className="about-v2-bio-block">
             <p className="bio-paragraph">
-              Hi, I'm <strong>Sarjan P</strong> — an AI Engineer, Full Stack Developer, and Co-Founder &amp; CTO at Innovation Hacks Web Solutions. Currently in my Final Year (<strong>8.0 CGPA</strong>) pursuing Artificial Intelligence &amp; Data Science at <strong>Shree Venkateshwara Hi-Tech Engineering College</strong>. I love combining generative AI, LLMs, and modern full-stack architectures to build scalable, impactful products.
+              Hi, I'm <strong>Sarjan P</strong> — an AI Engineer, Full Stack Developer, and Co-Founder &amp; CEO at Innovation Hacks Web Solutions. Currently in my Final Year (<strong>8.0 CGPA</strong>) pursuing Artificial Intelligence &amp; Data Science at <strong>Shree Venkateshwara Hi-Tech Engineering College</strong>. I love combining generative AI, LLMs, and modern full-stack architectures to build scalable, impactful products.
             </p>
             <div className="doodle-note">
               <span className="doodle-text">Smart Ideas</span>
