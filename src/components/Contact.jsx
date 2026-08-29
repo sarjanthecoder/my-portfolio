@@ -2,9 +2,46 @@ import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { emailJsConfig } from '../data/portfolioData';
 
+const contactInfoCards = [
+  {
+    icon: 'fas fa-envelope',
+    iconColor: '#2563eb',
+    iconBg: 'rgba(37,99,235,0.1)',
+    label: 'Email',
+    value: 'sarjan6325@gmail.com',
+    href: 'mailto:sarjan6325@gmail.com',
+  },
+  {
+    icon: 'fas fa-phone-alt',
+    iconColor: '#2563eb',
+    iconBg: 'rgba(37,99,235,0.1)',
+    label: 'Phone',
+    value: '+91 6385562064',
+    href: 'tel:+916385562064',
+  },
+  {
+    icon: 'fas fa-map-marker-alt',
+    iconColor: '#2563eb',
+    iconBg: 'rgba(37,99,235,0.1)',
+    label: 'Location',
+    value: 'Vedharampatti Pudur, Dharmapuri, Tamil Nadu, India',
+    href: null,
+  },
+  {
+    icon: 'fas fa-globe',
+    iconColor: '#2563eb',
+    iconBg: 'rgba(37,99,235,0.1)',
+    label: 'Portfolio',
+    value: 'sarjanp.in',
+    href: 'https://sarjanp.in',
+    external: true,
+  },
+];
+
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState('');
+  const [sending, setSending] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -12,6 +49,7 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSending(true);
     setStatus('Sending...');
 
     emailjs.send(
@@ -21,111 +59,229 @@ export default function Contact() {
       emailJsConfig.publicKey
     )
     .then(() => {
-      setStatus('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' });
+      setStatus('✅ Message sent successfully!');
+      setFormData({ name: '', email: '', subject: '', message: '' });
       setTimeout(() => setStatus(''), 5000);
     })
     .catch((err) => {
       console.error('FAILED...', err);
-      setStatus('Failed to send message. Please try again.');
-    });
+      setStatus('❌ Failed to send message. Please try again.');
+    })
+    .finally(() => setSending(false));
   };
 
   return (
-    <section className="contact" id="contact" aria-label="Contact Sarjan P — AI Engineer and Full Stack Developer" itemScope itemType="https://schema.org/ContactPage">
+    <section
+      className="contact-v2-section"
+      id="contact"
+      aria-label="Contact Sarjan P — AI Engineer and Full Stack Developer"
+      itemScope
+      itemType="https://schema.org/ContactPage"
+    >
       <div className="container">
-        <h2 className="section-title">
-          <span className="neon-text">Contact</span> Me
-        </h2>
-        <div className="contact-content">
-          <address className="contact-info" itemScope itemType="https://schema.org/Person">
-            <meta itemProp="name" content="Sarjan P" />
-            <meta itemProp="url" content="https://sarjanp.in/" />
-            <div className="contact-item">
-              <div className="contact-item-icon" aria-hidden="true">
-                <i className="fas fa-envelope"></i>
-              </div>
-              <div className="contact-item-text">
-                <h4>Email</h4>
-                <p><a href="mailto:sarjan6325@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }} className="contact-link" itemProp="email" aria-label="Email Sarjan P at sarjan6325@gmail.com">sarjan6325@gmail.com</a></p>
-              </div>
+
+        {/* ─── Main Two-Column Layout ─── */}
+        <div className="contact-v2-grid">
+
+          {/* ── Left: Info Block ── */}
+          <div className="contact-v2-left">
+            {/* Badge */}
+            <div className="contact-badge-pill">
+              <i className="fas fa-paper-plane" style={{ fontSize: '0.7rem' }}></i>
+              GET IN TOUCH
             </div>
-            <div className="contact-item">
-              <div className="contact-item-icon" aria-hidden="true">
-                <i className="fas fa-map-marker-alt"></i>
+
+            {/* Headline */}
+            <h2 className="contact-v2-headline">
+              Let's Work<br />
+              <span className="contact-headline-blue">Together.</span>
+            </h2>
+
+            {/* Subtitle */}
+            <p className="contact-v2-subtitle">
+              Have a project in mind, a question, or just want to say hello?<br />
+              I'd love to hear from you. Fill out the form or reach me directly.
+            </p>
+
+            {/* Contact Info 2×2 Cards */}
+            <div className="contact-info-grid" itemScope itemType="https://schema.org/Person">
+              <meta itemProp="name" content="Sarjan P" />
+              <meta itemProp="url" content="https://sarjanp.in/" />
+              {contactInfoCards.map((card, idx) => (
+                <div key={idx} className="contact-info-card">
+                  <div
+                    className="contact-info-icon"
+                    style={{ background: card.iconBg, color: card.iconColor }}
+                  >
+                    <i className={card.icon}></i>
+                  </div>
+                  <div className="contact-info-text">
+                    <span className="contact-info-label">{card.label}</span>
+                    {card.href ? (
+                      <a
+                        href={card.href}
+                        className="contact-info-value contact-info-link"
+                        target={card.external ? '_blank' : undefined}
+                        rel={card.external ? 'noopener noreferrer' : undefined}
+                        itemProp={card.label === 'Email' ? 'email' : card.label === 'Phone' ? 'telephone' : undefined}
+                      >
+                        {card.value}
+                        {card.external && (
+                          <i className="fas fa-external-link-alt" style={{ fontSize: '0.68rem', marginLeft: '4px' }}></i>
+                        )}
+                      </a>
+                    ) : (
+                      <span className="contact-info-value">{card.value}</span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Right: Contact Form Card ── */}
+          <div className="contact-v2-form-card">
+            {/* Dot pattern decoration */}
+            <div className="contact-form-dots" aria-hidden="true">
+              {Array.from({ length: 25 }).map((_, i) => (
+                <span key={i} className="contact-dot"></span>
+              ))}
+            </div>
+
+            <h3 className="contact-form-title">Send Me a Message</h3>
+            <div className="contact-form-title-underline"></div>
+
+            <form
+              className="contact-v2-form"
+              onSubmit={handleSubmit}
+              aria-label="Send a message to Sarjan P"
+              id="contact-form"
+              noValidate
+            >
+              {/* Name + Email Row */}
+              <div className="contact-form-row">
+                <div className="contact-field-wrap">
+                  <label htmlFor="contact-name" className="sr-only">Your Name</label>
+                  <div className="contact-input-group">
+                    <input
+                      type="text"
+                      id="contact-name"
+                      name="name"
+                      className="contact-v2-input"
+                      placeholder="Your Name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      autoComplete="name"
+                      aria-required="true"
+                    />
+                    <i className="fas fa-user contact-input-icon"></i>
+                  </div>
+                </div>
+                <div className="contact-field-wrap">
+                  <label htmlFor="contact-email" className="sr-only">Your Email</label>
+                  <div className="contact-input-group">
+                    <input
+                      type="email"
+                      id="contact-email"
+                      name="email"
+                      className="contact-v2-input"
+                      placeholder="Your Email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      autoComplete="email"
+                      aria-required="true"
+                    />
+                    <i className="fas fa-envelope contact-input-icon"></i>
+                  </div>
+                </div>
               </div>
-              <div className="contact-item-text">
-                <h4>Location</h4>
-                <p itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                  <span itemProp="streetAddress">Vedharampatti Pudur</span>, <span itemProp="addressLocality">Dharmapuri</span>, <span itemProp="addressRegion">Tamil Nadu</span>, <span itemProp="addressCountry">India</span>
+
+              {/* Subject */}
+              <div className="contact-field-wrap">
+                <label htmlFor="contact-subject" className="sr-only">Subject</label>
+                <div className="contact-input-group">
+                  <input
+                    type="text"
+                    id="contact-subject"
+                    name="subject"
+                    className="contact-v2-input"
+                    placeholder="Subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    autoComplete="off"
+                  />
+                  <i className="fas fa-calendar-alt contact-input-icon"></i>
+                </div>
+              </div>
+
+              {/* Message */}
+              <div className="contact-field-wrap">
+                <label htmlFor="contact-message" className="sr-only">Your Message</label>
+                <div className="contact-input-group contact-textarea-group">
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    className="contact-v2-input contact-v2-textarea"
+                    placeholder="Your Message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    aria-required="true"
+                    rows={5}
+                  ></textarea>
+                  <i className="fas fa-pencil contact-input-icon contact-textarea-icon"></i>
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="contact-v2-submit-btn"
+                disabled={sending}
+                aria-label="Send message to Sarjan P"
+              >
+                <i className="fas fa-paper-plane"></i>
+                {sending ? 'Sending...' : 'Send Message'}
+              </button>
+
+              {/* Status */}
+              {status && (
+                <p
+                  role="status"
+                  aria-live="polite"
+                  className="contact-v2-status"
+                  style={{ color: status.includes('✅') ? '#10b981' : '#ef4444' }}
+                >
+                  {status}
                 </p>
-              </div>
-            </div>
-            <div className="contact-item">
-              <div className="contact-item-icon" aria-hidden="true">
-                <i className="fas fa-phone-alt"></i>
-              </div>
-              <div className="contact-item-text">
-                <h4>Phone</h4>
-                <p><a href="tel:+916385562064" style={{ color: 'inherit', textDecoration: 'none' }} className="contact-link" itemProp="telephone" aria-label="Call Sarjan P at +91 6385562064">+91 6385562064</a></p>
-              </div>
-            </div>
-          </address>
-          
-          <form className="contact-form" onSubmit={handleSubmit} aria-label="Send a message to Sarjan P" id="contact-form">
-            <div className="form-group">
-              <label htmlFor="contact-name" className="sr-only">Your Name</label>
-              <input 
-                type="text" 
-                id="contact-name"
-                name="name" 
-                className="form-control" 
-                placeholder="Your Name" 
-                value={formData.name} 
-                onChange={handleChange} 
-                required 
-                autoComplete="name"
-                aria-required="true"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="contact-email" className="sr-only">Your Email</label>
-              <input 
-                type="email" 
-                id="contact-email"
-                name="email" 
-                className="form-control" 
-                placeholder="Your Email" 
-                value={formData.email} 
-                onChange={handleChange} 
-                required 
-                autoComplete="email"
-                aria-required="true"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="contact-message" className="sr-only">Your Message</label>
-              <textarea 
-                id="contact-message"
-                name="message" 
-                className="form-control" 
-                placeholder="Your Message" 
-                value={formData.message} 
-                onChange={handleChange} 
-                required 
-                aria-required="true"
-              ></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} aria-label="Send message to Sarjan P">
-              <span>Send Message</span> <i className="fas fa-paper-plane" aria-hidden="true"></i>
-            </button>
-            {status && (
-              <p role="status" aria-live="polite" style={{ marginTop: '1rem', textAlign: 'center', color: status.includes('success') ? 'var(--primary)' : '#ff4444' }}>
-                {status}
-              </p>
-            )}
-          </form>
+              )}
+            </form>
+          </div>
         </div>
+
+        {/* ─── Bottom Banner ─── */}
+        <div className="contact-v2-bottom-banner">
+          <div className="contact-bottom-icon">
+            <i className="fas fa-rocket"></i>
+          </div>
+          <div className="contact-bottom-text-group">
+            <strong className="contact-bottom-bold">Open to exciting opportunities and collaborations.</strong>
+            <span className="contact-bottom-sub">Let's build something impactful together!</span>
+          </div>
+          <a
+            href="https://drive.google.com/file/d/1example/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-download-btn"
+            aria-label="Download Sarjan P's Resume"
+          >
+            <i className="fas fa-download"></i>
+            Download Resume
+          </a>
+        </div>
+
       </div>
     </section>
   );

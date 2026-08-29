@@ -4,11 +4,89 @@ export const emailJsConfig = {
   publicKey: "wrPvV8YlHoJU7FbV3"
 };
 
+export const personalInfo = {
+  name: "Sarjan P",
+  handle: "SarjanTheCoder",
+  role: "AI Engineer & Full Stack Developer",
+  subRole: "Co-Founder & CTO @ Innovation Hacks Web Solutions",
+  college: "Shree Venkateshwara Hi-Tech Engineering College",
+  academics: "Final Year · 8.0 CGPA",
+  department: "Artificial Intelligence & Data Science",
+  location: "Vedharampatti Pudur, Dharmapuri, Tamil Nadu, India",
+  address: "Vedharampatti Pudur, Dharmapuri, Tamil Nadu - 636807, India",
+  email: "sarjan6325@gmail.com",
+  altEmail: "sarjanp.ai@gmail.com",
+  phone: "+91 6385562064",
+  altPhone: "+91 93634 76323",
+  portfolioUrl: "https://sarjanp.in",
+  socials: {
+    github: "https://github.com/sarjanthecoder",
+    linkedin: "https://www.linkedin.com/in/sarjan-p-7a97862a0",
+    instagram: "https://www.instagram.com/lonely_boy_official_2k",
+    telegram: "https://t.me/sarjanthecoder",
+    twitter: "https://x.com/sarjanthecoder"
+  }
+};
+
 export const statsData = [
+  { label: "Projects Completed", target: 20, icon: "fas fa-rocket" },
+  { label: "AI Models Deployed", target: 15, icon: "fas fa-brain" },
   { label: "Years Experience", target: 2, icon: "fas fa-briefcase" },
-  { label: "Completed Projects", target: 50, icon: "fas fa-project-diagram" },
-  { label: "Technologies Mastered", target: 10, icon: "fas fa-code" },
-  { label: "Satisfied Clients", target: 3, icon: "fas fa-users" }
+  { label: "Happy Clients", target: 10, icon: "fas fa-users" }
+];
+
+export const techFeaturesData = [
+  { icon: "fas fa-code", title: "Full Stack", subtitle: "Development" },
+  { icon: "fas fa-brain", title: "AI / ML", subtitle: "Engineering" },
+  { icon: "fas fa-cloud", title: "Cloud", subtitle: "Integration" },
+  { icon: "fas fa-rocket", title: "Fast & Scalable", subtitle: "Solutions" },
+  { icon: "fas fa-shield-alt", title: "Secure & Reliable", subtitle: "Applications" },
+  { icon: "fas fa-bolt", title: "Modern", subtitle: "Technologies" }
+];
+
+export const experienceData = [
+  {
+    role: "AI & Full Stack Engineer (Freelance / Independent)",
+    period: "2024 - Present",
+    company: "Sarjan Tech Solutions",
+    location: "Tamil Nadu, India",
+    desc: "Architecting end-to-end intelligent web platforms, deploying custom NLP models, Gemini API pipelines, and responsive modern web applications."
+  },
+  {
+    role: "Lead Developer & Ideathon Winner",
+    period: "2026",
+    company: "AI For ALL Ideathon (NIT Trichy & TCS Foundation)",
+    location: "Tiruchirappalli, India",
+    desc: "Secured 1st Place building cutting-edge AI accessibility solutions, orchestrating multi-agent systems and real-time inference web apps."
+  },
+  {
+    role: "Oracle Certified Foundations Associate",
+    period: "2025",
+    company: "Oracle Corporation",
+    location: "Global Certification",
+    desc: "Specialized in cloud architecture, AI agent studio integrations, foundational ML models, and high-availability systems."
+  }
+];
+
+export const aiLabData = [
+  {
+    name: "Gemini Vision & NLP Pipeline",
+    tag: "Generative AI",
+    status: "Active",
+    desc: "Multi-modal vision and language prompt orchestration engine for document intelligence and OCR parsing."
+  },
+  {
+    name: "Real-time Vector Search",
+    tag: "Embeddings",
+    status: "Optimized",
+    desc: "High-dimensional similarity indexing for semantic question answering and rapid document retrieval."
+  },
+  {
+    name: "Predictive Analytics Engine",
+    tag: "Machine Learning",
+    status: "Deployed",
+    desc: "Time-series forecasting and regression models for agricultural yield, stock market and price tracking."
+  }
 ];
 
 export const servicesData = [

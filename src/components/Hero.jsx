@@ -1,107 +1,229 @@
 import React, { useRef } from 'react';
 
 export default function Hero() {
-  const containerRef = useRef(null);
-  const titleRef = useRef(null);
-  const subtitleRef = useRef(null);
-  const descRef = useRef(null);
-  const avatarRef = useRef(null);
-  const rectRef = useRef(null);
+  const heroCardRef = useRef(null);
 
-  const handleMouseEnter = () => {
-    if (containerRef.current) {
-      rectRef.current = containerRef.current.getBoundingClientRect();
-    }
-    const transitionNone = 'none';
-    if (titleRef.current) titleRef.current.style.transition = transitionNone;
-    if (subtitleRef.current) subtitleRef.current.style.transition = transitionNone;
-    if (descRef.current) descRef.current.style.transition = transitionNone;
-    if (avatarRef.current) avatarRef.current.style.transition = transitionNone;
+  const handleDownloadCV = () => {
+    const toast = document.createElement('div');
+    toast.className = 'cv-toast-notification';
+    toast.innerHTML = '<i class="fas fa-check-circle"></i> <span>CV download initiated!</span>';
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      toast.classList.add('fade-out');
+      setTimeout(() => toast.remove(), 400);
+    }, 2800);
   };
 
-  const handleMouseMove = (e) => {
-    if (!rectRef.current && containerRef.current) {
-      rectRef.current = containerRef.current.getBoundingClientRect();
-    }
-    const rect = rectRef.current;
-    if (!rect) return;
-    
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateX = ((y - centerY) / centerY) * -12;
-    const rotateY = ((x - centerX) / centerX) * 12;
-    
-    if (titleRef.current) titleRef.current.style.transform = `perspective(1000px) rotateX(${rotateX * 0.4}deg) rotateY(${rotateY * 0.4}deg) translateZ(10px)`;
-    if (subtitleRef.current) subtitleRef.current.style.transform = `perspective(1000px) rotateX(${rotateX * 0.5}deg) rotateY(${rotateY * 0.5}deg) translateZ(15px)`;
-    if (descRef.current) descRef.current.style.transform = `perspective(1000px) rotateX(${rotateX * 0.3}deg) rotateY(${rotateY * 0.3}deg) translateZ(5px)`;
-    if (avatarRef.current) avatarRef.current.style.transform = `perspective(1000px) rotateX(${rotateX * 0.7}deg) rotateY(${rotateY * 0.7}deg) translateZ(30px) translateY(-5px)`;
+  const handleCardMouseMove = (e) => {
+    if (!heroCardRef.current) return;
+    const rect = heroCardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    heroCardRef.current.style.transform = `perspective(1000px) rotateX(${-y * 0.04}deg) rotateY(${x * 0.04}deg) translateZ(8px)`;
   };
 
-  const handleMouseLeave = () => {
-    rectRef.current = null;
-    const resetTransition = 'transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1)';
-    const elements = [titleRef, subtitleRef, descRef, avatarRef];
-    elements.forEach(el => {
-      if (el.current) {
-        el.current.style.transition = resetTransition;
-        el.current.style.transform = '';
-      }
-    });
+  const handleCardMouseLeave = () => {
+    if (!heroCardRef.current) return;
+    heroCardRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
   };
 
   return (
-    <section className="hero" id="home" ref={containerRef} onMouseEnter={handleMouseEnter} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} aria-label="Sarjan P — AI Engineer and Full Stack Developer introduction" itemScope itemType="https://schema.org/Person">
-      <div className="container hero-container">
-        <div className="hero-content">
-          <div className="hero-text">
-            <h1 ref={titleRef} className="glitch" data-text="Hello, I'm Sarjan P">
-              Hello, I'm <span className="neon-text" itemProp="name" style={{ whiteSpace: 'nowrap' }}>Sarjan P</span>
-            </h1>
-            <h2 ref={subtitleRef} className="hero-subtitle">
-              <span itemProp="jobTitle">AI Engineer</span>, <span itemProp="jobTitle">Full Stack Developer</span> &amp; <span itemProp="jobTitle">Software Engineer</span>
-            </h2>
-            <p ref={descRef} className="hero-description" itemProp="description">
-              Crafting intelligent digital experiences with cutting-edge AI and web technologies.
-              Passionate about building innovative solutions that blend machine learning with modern full stack development — from <span itemProp="addressLocality">Dharmapuri</span>, <span itemProp="addressRegion">Tamil Nadu</span>, India.
-            </p>
-            <div className="social-links" aria-label="Social media profiles">
-              <a href="https://www.linkedin.com/in/sarjan-p-7a97862a0" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Sarjan P LinkedIn Profile" itemProp="sameAs">
-                <i className="fab fa-brands fa-linkedin-in"></i>
-              </a>
-              <a href="https://github.com/sarjanthecoder" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="SarjanTheCoder GitHub Profile" itemProp="sameAs">
-                <i className="fab fa-brands fa-github"></i>
-              </a>
-              <a href="https://www.instagram.com/lonely_boy_official_2k" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Sarjan Instagram Profile" itemProp="sameAs">
-                <i className="fab fa-brands fa-instagram"></i>
-              </a>
-            </div>
-            <div className="hero-buttons">
-              <button className="btn btn-primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} aria-label="Hire Sarjan P — AI Engineer and Full Stack Developer">
-                <span>Hire Me</span> <i className="fas fa-arrow-right"></i>
-              </button>
-              <button className="btn btn-secondary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} aria-label="Contact Sarjan P for collaboration">
-                <span>Contact Me</span> <i className="fas fa-envelope"></i>
-              </button>
-            </div>
+    <section className="hero-section" id="home">
+      {/* Background Cosmic Overlay */}
+      <div className="cosmic-hero-bg" />
+
+      <div className="container hero-grid-container">
+        {/* Left Column: Headline, Bio, Buttons, Socials */}
+        <div className="hero-left">
+          <div className="status-badge">
+            <span className="pulse-dot"></span>
+            <span className="status-text">AVAILABLE FOR NEW OPPORTUNITIES</span>
           </div>
-          <div className="hero-image">
-            <div ref={avatarRef} className="holographic-frame">
-              <img
-                src="images/profile.jpg"
-                alt="Sarjan P — AI Engineer, Full Stack Developer and Software Engineer from Dharmapuri, Tamil Nadu, India"
-                width="400"
-                height="400"
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-                itemProp="image"
-                onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&q=80&w=800"; }}
-              />
-              <div className="holographic-glow"></div>
+
+          <h1 className="hero-main-title">
+            <span className="title-gradient">AI ENGINEER &amp;</span>
+            <br />
+            <span className="title-dark">FULL STACK</span>
+            <br />
+            <span className="title-dark">DEVELOPER</span>
+          </h1>
+
+          <p className="hero-lead-text">
+            I build intelligent, scalable and user-centric web applications powered by{' '}
+            <span className="ai-highlight">AI</span> and modern technologies.
+          </p>
+
+          {/* Innovation Hacks Founder Badge / Leadership Role */}
+          <a
+            href="https://www.innovationhacks.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ih-founder-badge"
+            aria-label="Visit Innovation Hacks"
+          >
+            <span className="ih-crown-icon">👑</span>
+            <div className="ih-badge-text">
+              <span className="ih-role-label">CO-FOUNDER &amp; CEO</span>
+              <span className="ih-company-name">
+                INNOVATION HACKS
+                <i className="fas fa-arrow-up-right-from-square ih-ext-icon"></i>
+              </span>
+              <span className="ih-domain">innovationhacks.in</span>
             </div>
+          </a>
+
+          <div className="hero-cta-group">
+            <a
+              href="#portfolio"
+              className="btn-pill-primary"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <span>View My Work</span>
+              <i className="fas fa-arrow-right"></i>
+            </a>
+
+            <button
+              className="btn-pill-glass"
+              onClick={handleDownloadCV}
+              title="Download Resume / CV"
+            >
+              <span>Download CV</span>
+              <i className="fas fa-arrow-down-to-bracket"></i>
+            </button>
+          </div>
+
+          <div className="hero-social-row">
+            <a
+              href="https://github.com/sarjanthecoder"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-glass-btn"
+              aria-label="GitHub Profile"
+              title="GitHub"
+            >
+              <i className="fab fa-github"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/sarjan-p-7a97862a0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-glass-btn"
+              aria-label="LinkedIn Profile"
+              title="LinkedIn"
+            >
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/lonely_boy_official_2k"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-glass-btn"
+              aria-label="Instagram Profile"
+              title="Instagram"
+            >
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://t.me/sarjanthecoder"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-glass-btn"
+              aria-label="Telegram"
+              title="Telegram"
+            >
+              <i className="fab fa-telegram"></i>
+            </a>
+            <a
+              href="mailto:sarjan6325@gmail.com"
+              className="social-glass-btn"
+              aria-label="Email Me"
+              title="Email"
+            >
+              <i className="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        {/* Center: Developer Portrait Seamlessly Merged with Background, Orbit Rings & IH Watermark */}
+        <div className="hero-center">
+          <div className="portrait-wrapper seamless-portrait-wrapper">
+            <div className="hero-orbit-ring">
+              <span className="orbit-dot dot-gold"></span>
+              <span className="orbit-dot dot-blue"></span>
+            </div>
+            <div className="space-glow-ring"></div>
+            <div className="space-dust-particle p1"></div>
+            <div className="space-dust-particle p2"></div>
+            <div className="space-dust-particle p3"></div>
+            
+            {/* Innovation Hacks low-opacity futuristic watermark */}
+            <img
+              src="/images/ih_logo.svg"
+              alt=""
+              className="ih-portrait-watermark"
+              aria-hidden="true"
+              loading="eager"
+            />
+            
+            {/* Developer Portrait with Smooth Background Gradient Edge Blending */}
+            <img
+              src="/images/hero_sarjan.jpg"
+              alt="Sarjan P - AI Engineer and Full Stack Developer"
+              className="hero-portrait-img seamless-img"
+              loading="eager"
+            />
+          </div>
+        </div>
+
+        {/* Right Column: Floating Frosted Glass Contact & Bio Card */}
+        <div className="hero-right">
+          <div
+            className="floating-profile-card"
+            ref={heroCardRef}
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+          >
+            <div className="profile-card-header">
+              <h3 className="profile-card-name">SARJAN P</h3>
+              <p className="profile-card-title">AI Engineer | Full Stack Developer</p>
+            </div>
+
+            <ul className="profile-card-list">
+              <li className="profile-card-item">
+                <i className="fas fa-graduation-cap item-icon"></i>
+                <div>
+                  <span style={{ fontWeight: 800 }}>Shree Venkateshwara Hi-Tech Engineering College</span>
+                  <span style={{ display: 'block', fontSize: '0.8rem', color: '#10b981', fontWeight: 700 }}>Final Year · 8.0 CGPA</span>
+                </div>
+              </li>
+              <li className="profile-card-item">
+                <i className="fas fa-location-dot item-icon"></i>
+                <span>Vedharampatti Pudur, Dharmapuri, Tamil Nadu, India</span>
+              </li>
+              <li className="profile-card-item">
+                <i className="fas fa-envelope item-icon"></i>
+                <a href="mailto:sarjan6325@gmail.com">sarjan6325@gmail.com</a>
+              </li>
+              <li className="profile-card-item">
+                <i className="fas fa-phone item-icon"></i>
+                <a href="tel:+916385562064">+91 6385562064</a>
+              </li>
+              <li className="profile-card-item">
+                <i className="fab fa-github item-icon"></i>
+                <a href="https://github.com/sarjanthecoder" target="_blank" rel="noopener noreferrer">
+                  github.com/sarjanthecoder
+                </a>
+              </li>
+              <li className="profile-card-item">
+                <i className="fab fa-linkedin-in item-icon"></i>
+                <a href="https://www.linkedin.com/in/sarjan-p-7a97862a0" target="_blank" rel="noopener noreferrer">
+                  linkedin.com/in/sarjan-p
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

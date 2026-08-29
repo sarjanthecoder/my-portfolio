@@ -11,20 +11,20 @@ export default function Stats() {
       (entries) => {
         if (entries[0].isIntersecting && !hasAnimated) {
           setHasAnimated(true);
-          
+
           statsData.forEach((stat, index) => {
-            const duration = 2000;
-            const steps = 60;
+            const duration = 1800;
+            const steps = 40;
             const stepValue = stat.target / steps;
             let current = 0;
-            
+
             const timer = setInterval(() => {
               current += stepValue;
               if (current >= stat.target) {
                 current = stat.target;
                 clearInterval(timer);
               }
-              setCounts(prev => {
+              setCounts((prev) => {
                 const newCounts = [...prev];
                 newCounts[index] = Math.floor(current);
                 return newCounts;
@@ -33,7 +33,7 @@ export default function Stats() {
           });
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     if (statsRef.current) {
@@ -44,16 +44,22 @@ export default function Stats() {
   }, [hasAnimated]);
 
   return (
-    <section className="stats" id="stats" ref={statsRef}>
+    <section className="stats-section" ref={statsRef}>
       <div className="container">
-        <div className="stats-grid">
-          {statsData.map((stat, idx) => (
-            <div key={idx} className="stat-card">
-              <i className={`${stat.icon} stat-icon`}></i>
-              <div className="stat-number">{counts[idx]}+</div>
-              <div className="stat-label">{stat.label}</div>
-            </div>
-          ))}
+        <div className="stats-glass-card">
+          <div className="stats-grid-row">
+            {statsData.map((stat, idx) => (
+              <div key={idx} className="stat-item-block">
+                <div className="stat-icon-circle">
+                  <i className={stat.icon}></i>
+                </div>
+                <div className="stat-content-text">
+                  <span className="stat-value-number">{counts[idx]}+</span>
+                  <span className="stat-label-text">{stat.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
