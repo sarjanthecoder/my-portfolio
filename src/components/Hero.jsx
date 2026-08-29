@@ -67,14 +67,16 @@ export default function Hero() {
               <i className="fas fa-arrow-right"></i>
             </a>
 
-            <button
+            <a
+              href="/Sarjan_P_Resume.pdf"
+              download="Sarjan_P_Resume.pdf"
               className="btn-pill-glass"
               onClick={handleDownloadCV}
               title="Download Resume / CV"
             >
               <span>Download CV</span>
               <i className="fas fa-arrow-down-to-bracket"></i>
-            </button>
+            </a>
           </div>
 
           <div className="hero-social-row">

@@ -271,9 +271,8 @@ export default function Contact() {
             <span className="contact-bottom-sub">Let's build something impactful together!</span>
           </div>
           <a
-            href="https://drive.google.com/file/d/1example/view"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/Sarjan_P_Resume.pdf"
+            download="Sarjan_P_Resume.pdf"
             className="contact-download-btn"
             aria-label="Download Sarjan P's Resume"
           >
