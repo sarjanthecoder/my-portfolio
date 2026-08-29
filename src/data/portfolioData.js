@@ -4,6 +4,10 @@ export const emailJsConfig = {
   publicKey: "wrPvV8YlHoJU7FbV3"
 };
 
+export const web3FormsConfig = {
+  accessKey: "f35978b9-0c73-4e90-9c57-389e0bd2f598"
+};
+
 export const personalInfo = {
   name: "Sarjan P",
   handle: "SarjanTheCoder",

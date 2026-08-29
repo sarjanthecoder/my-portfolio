@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
-import { emailJsConfig } from '../data/portfolioData';
+import { web3FormsConfig } from '../data/portfolioData';
 
 const contactInfoCards = [
   {
@@ -47,27 +46,35 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
     setStatus('Sending...');
 
-    emailjs.send(
-      emailJsConfig.serviceId,
-      emailJsConfig.templateId,
-      formData,
-      emailJsConfig.publicKey
-    )
-    .then(() => {
-      setStatus('✅ Message sent successfully!');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus(''), 5000);
-    })
-    .catch((err) => {
+    try {
+      const formPayload = new FormData(e.target);
+      formPayload.append('access_key', web3FormsConfig.accessKey || 'f35978b9-0c73-4e90-9c57-389e0bd2f598');
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formPayload,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus('✅ Message sent successfully! I will get back to you soon.');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setStatus(''), 5000);
+      } else {
+        setStatus(`❌ ${data.message || 'Failed to send message. Please try again.'}`);
+      }
+    } catch (err) {
       console.error('FAILED...', err);
-      setStatus('❌ Failed to send message. Please try again.');
-    })
-    .finally(() => setSending(false));
+      setStatus('❌ Network error. Please try again or email directly.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
