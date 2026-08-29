@@ -86,7 +86,7 @@ export default function Footer() {
             {/* Logo */}
             <a href="#home" className="footer-logo" onClick={e => { e.preventDefault(); scrollTo('#home'); }}>
               <div className="footer-logo-icon footer-logo-img-wrap">
-                <img src="/images/logo.jpg" alt="Sarjan P Logo" className="footer-logo-img" />
+                <img src="/images/sarjan_logo.png" alt="Sarjan P Logo" className="footer-logo-img" />
               </div>
               <div className="footer-logo-text">
                 <span className="footer-logo-name">SARJAN P</span>

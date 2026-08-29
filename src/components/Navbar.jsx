@@ -48,7 +48,7 @@ export default function Navbar({ currentTheme, setTheme }) {
         {/* Brand Logo matching reference */}
         <a href="#home" className="brand-logo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
           <div className="logo-icon-wrap logo-img-container">
-            <img src="/images/logo.jpg" alt="Sarjan P Logo" className="navbar-logo-img" />
+            <img src="/images/sarjan_logo.png" alt="Sarjan P Logo" className="navbar-logo-img" />
           </div>
           <div className="brand-text">
             <span className="brand-name">SARJAN</span>
