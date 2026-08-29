@@ -181,47 +181,74 @@ export default function Hero() {
         {/* Right Column: Floating Frosted Glass Contact & Bio Card */}
         <div className="hero-right">
           <div
-            className="floating-profile-card"
+            className="floating-profile-card stylish-profile-card"
             ref={heroCardRef}
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
           >
             <div className="profile-card-header">
+              <div className="profile-badge-pill">
+                <span className="profile-badge-dot"></span>
+                <span>AI ENGINEER &amp; DEVELOPER</span>
+              </div>
               <h3 className="profile-card-name">SARJAN P</h3>
-              <p className="profile-card-title">AI Engineer | Full Stack Developer</p>
             </div>
 
             <ul className="profile-card-list">
               <li className="profile-card-item">
-                <i className="fas fa-graduation-cap item-icon"></i>
-                <div>
-                  <span style={{ fontWeight: 800 }}>Shree Venkateshwara Hi-Tech Engineering College</span>
-                  <span style={{ display: 'block', fontSize: '0.8rem', color: '#10b981', fontWeight: 700 }}>Final Year · 8.0 CGPA</span>
+                <div className="profile-icon-badge icon-edu">
+                  <i className="fas fa-graduation-cap"></i>
+                </div>
+                <div className="profile-item-text">
+                  <strong className="profile-college-name">Shree Venkateshwara Hi-Tech Engineering College</strong>
+                  <span className="profile-cgpa-badge">
+                    <i className="fas fa-award"></i> Final Year · 8.0 CGPA
+                  </span>
                 </div>
               </li>
               <li className="profile-card-item">
-                <i className="fas fa-location-dot item-icon"></i>
-                <span>Vedharampatti Pudur, Dharmapuri, Tamil Nadu, India</span>
+                <div className="profile-icon-badge icon-loc">
+                  <i className="fas fa-location-dot"></i>
+                </div>
+                <div className="profile-item-text">
+                  <span>Vedharampatti Pudur, Dharmapuri, Tamil Nadu, India</span>
+                </div>
               </li>
               <li className="profile-card-item">
-                <i className="fas fa-envelope item-icon"></i>
-                <a href="mailto:sarjan6325@gmail.com">sarjan6325@gmail.com</a>
+                <div className="profile-icon-badge icon-mail">
+                  <i className="fas fa-envelope"></i>
+                </div>
+                <div className="profile-item-text">
+                  <a href="mailto:sarjan6325@gmail.com" className="profile-link">sarjan6325@gmail.com</a>
+                </div>
               </li>
               <li className="profile-card-item">
-                <i className="fas fa-phone item-icon"></i>
-                <a href="tel:+916385562064">+91 6385562064</a>
+                <div className="profile-icon-badge icon-phone">
+                  <i className="fas fa-phone"></i>
+                </div>
+                <div className="profile-item-text">
+                  <a href="tel:+916385562064" className="profile-link">+91 6385562064</a>
+                </div>
               </li>
               <li className="profile-card-item">
-                <i className="fab fa-github item-icon"></i>
-                <a href="https://github.com/sarjanthecoder" target="_blank" rel="noopener noreferrer">
-                  github.com/sarjanthecoder
-                </a>
+                <div className="profile-icon-badge icon-git">
+                  <i className="fab fa-github"></i>
+                </div>
+                <div className="profile-item-text">
+                  <a href="https://github.com/sarjanthecoder" target="_blank" rel="noopener noreferrer" className="profile-link">
+                    github.com/sarjanthecoder
+                  </a>
+                </div>
               </li>
               <li className="profile-card-item">
-                <i className="fab fa-linkedin-in item-icon"></i>
-                <a href="https://www.linkedin.com/in/sarjan-p-7a97862a0" target="_blank" rel="noopener noreferrer">
-                  linkedin.com/in/sarjan-p
-                </a>
+                <div className="profile-icon-badge icon-in">
+                  <i className="fab fa-linkedin-in"></i>
+                </div>
+                <div className="profile-item-text">
+                  <a href="https://www.linkedin.com/in/sarjan-p-7a97862a0" target="_blank" rel="noopener noreferrer" className="profile-link">
+                    linkedin.com/in/sarjan-p
+                  </a>
+                </div>
               </li>
             </ul>
           </div>
