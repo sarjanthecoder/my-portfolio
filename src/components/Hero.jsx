@@ -1,8 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
 export default function Hero() {
-  const heroCardRef = useRef(null);
-
   const handleDownloadCV = () => {
     const toast = document.createElement('div');
     toast.className = 'cv-toast-notification';
@@ -14,33 +12,8 @@ export default function Hero() {
     }, 2800);
   };
 
-  const tiltRafRef = useRef(null);
-
-  const handleCardMouseMove = (e) => {
-    if (!heroCardRef.current || window.innerWidth <= 900) return;
-    const rect = heroCardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    
-    if (tiltRafRef.current) cancelAnimationFrame(tiltRafRef.current);
-    tiltRafRef.current = requestAnimationFrame(() => {
-      if (heroCardRef.current) {
-        heroCardRef.current.style.transform = `perspective(1000px) rotateX(${-y * 0.03}deg) rotateY(${x * 0.03}deg) translateZ(6px)`;
-      }
-    });
-  };
-
-  const handleCardMouseLeave = () => {
-    if (tiltRafRef.current) cancelAnimationFrame(tiltRafRef.current);
-    if (!heroCardRef.current) return;
-    heroCardRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-  };
-
   return (
     <section className="hero-section" id="home">
-      {/* Background Cosmic Overlay */}
-      <div className="cosmic-hero-bg" />
-
       <div className="container hero-grid-container">
         {/* Left Column: Headline, Bio, Buttons, Socials */}
         <div className="hero-left">
@@ -189,12 +162,7 @@ export default function Hero() {
 
         {/* Right Column: Floating Frosted Glass Contact & Bio Card */}
         <div className="hero-right">
-          <div
-            className="floating-profile-card stylish-profile-card"
-            ref={heroCardRef}
-            onMouseMove={handleCardMouseMove}
-            onMouseLeave={handleCardMouseLeave}
-          >
+          <div className="floating-profile-card stylish-profile-card">
             <div className="profile-card-header">
               <div className="profile-badge-pill">
                 <span className="profile-badge-dot"></span>

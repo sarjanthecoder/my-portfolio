@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import UniverseCanvas from './components/UniverseCanvas';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
@@ -28,9 +27,6 @@ export default function App() {
 
   return (
     <div className="app-root-container">
-      {/* Background Cosmic Canvas */}
-      <UniverseCanvas currentTheme={theme} />
-
       {/* Global Navbar Header */}
       <Navbar currentTheme={theme} setTheme={setTheme} />
 
