@@ -284,7 +284,7 @@ export default function Contact() {
             aria-label="Download Sarjan P's Resume"
           >
             <i className="fas fa-download"></i>
-            Download Resume
+            Download My Resume
           </a>
         </div>
 
